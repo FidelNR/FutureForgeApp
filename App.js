@@ -1,20 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import index from './screens/index';
+import Login from './screens/login';
+import Signup from './screens/signup';
+import Home from './screens/Home';
+import LearningStyles from './screens/LearningStyles';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
+
+function LoginStack () {
+  return (
+    <Stack.Navigator initialRouteName='Login'>
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Signup" component={Signup} />
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Learningstyles" component={LearningStyles} />
+    </Stack.Navigator>
+  )
+}
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <NavigationContainer initialRouteName={index}>
+        <Drawer.Navigator >
+          <Drawer.Screen name="Index" component={index} />
+          <Drawer.Screen name="LoginStack" component={LoginStack} options={{ drawerLabel: 'Ingresar'}}/>
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
