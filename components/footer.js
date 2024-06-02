@@ -1,21 +1,30 @@
-import { SafeAreaView, StyleSheet, View,Image, Text } from "react-native";
+import React from 'react';
+import { SafeAreaView, StyleSheet, View, Image, Text, TouchableOpacity, Linking } from "react-native";
 import facebook from '../image/facebook.png';
 import instagram from '../image/instagram.png';
 import x from '../image/x.png';
 
-export default function footer() {
+const Footer = () => {
 
-    return(
-        <>
-            <SafeAreaView>
-                <View style={styles.footer}>
+    const openLink = (url) => {
+        Linking.openURL(url).catch((err) => console.error("Couldn't load page", err));
+    };
+
+    return (
+        <SafeAreaView>
+            <View style={styles.footer}>
+                <TouchableOpacity onPress={() => openLink('https://www.facebook.com')}>
                     <Image style={styles.socialIcon} source={facebook} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => openLink('https://www.twitter.com')}>
                     <Image style={styles.socialIcon} source={x} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => openLink('https://www.instagram.com')}>
                     <Image style={styles.socialIcon} source={instagram} />
-                    <Text style={styles.copyright}>© 2024 EduVoc</Text>
-                </View>
-            </SafeAreaView>
-        </>
+                </TouchableOpacity>
+                <Text style={styles.copyright}>© 2024 EduVoc</Text>
+            </View>
+        </SafeAreaView>
     );
 };
 
@@ -25,12 +34,14 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 24,
-      },
-      socialIcon: {
+    },
+    socialIcon: {
         marginHorizontal: 8,
-      },
-      copyright: {
+    },
+    copyright: {
         fontSize: 12,
         color: '#333',
-      },
+    },
 });
+
+export default Footer;

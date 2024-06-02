@@ -180,6 +180,10 @@ const Home = () => {
     navigation.navigate('Learningstyles');
   };
 
+  const handleTestVoca = () => {
+    navigation.navigate('VocationalTest');
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
@@ -197,7 +201,7 @@ const Home = () => {
               <Text>• Aumenta tu satisfacción y rendimiento</Text>
               <Text>• Motivación y compromiso</Text>
               <Image style={styles.image} source={vocacional} />
-              <Button title="Iniciar" color="#006400" />
+              <Button title="Iniciar" color="#006400" onPress={handleTestVoca}/>
 
               <Text style={styles.sectionTitle}>Prueba de estilos de aprendizaje</Text>
               <Text style={styles.sectionText}>

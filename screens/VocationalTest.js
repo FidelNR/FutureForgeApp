@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet, ScrollView, SafeAreaView, TouchableOpacity } from 'react-native';
 import questions from '../data/questionsV.json';
 import Footer from '../components/footer';
+import ResultsVocational from './ResultsVocational';
 
 const VocationalTest = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState(new Array(questions.length).fill(null));
+  const [isCompleted, setIsCompleted] = useState(false);
 
   const handleAnswer = (answer) => {
     const updatedAnswers = [...selectedAnswers];
@@ -14,9 +16,6 @@ const VocationalTest = () => {
 
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      console.log('Cuestionario completado', updatedAnswers);
-      // Aquí puedes redirigir a una pantalla de resultados o hacer algo con los resultados
     }
   };
 
@@ -26,51 +25,62 @@ const VocationalTest = () => {
     }
   };
 
+  const handleFinish = () => {
+    console.log('Respuestas listas',selectedAnswers)
+    setIsCompleted(true);
+  };
+
   return (
-    <>
+<>
       <SafeAreaView style={styles.container}>
         <ScrollView>
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Test de Orientación Vocacional</Text>
+            <Text style={styles.sectionTitle}>Test Vocacional</Text>
             <Text style={styles.sectionText}>
-              Realiza la prueba vocacional para encontrar tu area profesional adecuada a ti:
+              Realiza la prueba vocacional para encontrar tu mejor area profesional:
             </Text>
-            <View style={styles.questionContainer}>
-              <Text style={styles.question}>{questions[currentQuestionIndex].question}</Text>
-            </View>
-
-            <View style={styles.buttonContainer}>
-              <TouchableOpacity 
-                style={[
-                  styles.answerButton, 
-                  selectedAnswers[currentQuestionIndex]?.answer === 'Sí' && styles.selectedButton
-                ]} 
-                onPress={() => handleAnswer('Sí')}
-              >
-                <Text style={styles.answerText}>Sí</Text>
-              </TouchableOpacity>
-              <TouchableOpacity 
-                style={[
-                  styles.answerButton, 
-                  selectedAnswers[currentQuestionIndex]?.answer === 'No' && styles.selectedButton
-                ]} 
-                onPress={() => handleAnswer('No')}
-              >
-                <Text style={styles.answerText}>No</Text>
-              </TouchableOpacity>
-            </View>
-
-            <View style={styles.navigationButtons}>
-              <Button title="Anterior" onPress={handlePrevious} disabled={currentQuestionIndex === 0} />
-              <Button title={currentQuestionIndex < questions.length - 1 ? "Siguiente" : "Finalizar"} onPress={() => handleAnswer(selectedAnswers[currentQuestionIndex]?.answer || 'No')} />
-            </View>
+            {!isCompleted ? (
+              <>
+                <View style={styles.questionContainer}>
+                  <Text style={styles.question}>{questions[currentQuestionIndex].question}</Text>
+                </View>
+                <View style={styles.buttonContainer}>
+                  <TouchableOpacity
+                    style={[
+                      styles.answerButton,
+                      selectedAnswers[currentQuestionIndex]?.answer === 'Sí' && styles.selectedButton
+                    ]}
+                    onPress={() => handleAnswer('Sí')}
+                  >
+                    <Text style={styles.answerText}>Sí</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={[
+                      styles.answerButton,
+                      selectedAnswers[currentQuestionIndex]?.answer === 'No' && styles.selectedButton
+                    ]}
+                    onPress={() => handleAnswer('No')}
+                  >
+                    <Text style={styles.answerText}>No</Text>
+                  </TouchableOpacity>
+                </View>
+                <View style={styles.navigationButtons}>
+                  <Button title="Anterior" onPress={handlePrevious} disabled={currentQuestionIndex === 0} />
+                  <Button
+                    title={currentQuestionIndex < questions.length - 1 ? "Siguiente" : "Finalizar"}
+                    onPress={currentQuestionIndex < questions.length - 1 ? () => handleAnswer(selectedAnswers[currentQuestionIndex]?.answer || 'No') : handleFinish}
+                  />
+                </View>
+              </>
+            ) : (
+              <ResultsVocational answers={selectedAnswers} />
+            )}
           </View>
+          <SafeAreaView style={styles.footerbody}>
+            <Footer />
+          </SafeAreaView>
         </ScrollView>
       </SafeAreaView>
-      
-        <SafeAreaView style={styles.footerbody}>
-            <Footer />
-        </SafeAreaView>
     </>
   );
 };
@@ -128,5 +138,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#E6F5E6',
   },
 });
+
 
 export default VocationalTest;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const ResultsLearning = ({ answers }) => {
+const ResultsVocational = ({ answers }) => {
     let c = [1, 12, 20, 53, 64, 71, 78, 85, 91, 98];
     let h = [9, 25, 34, 41, 56, 67, 74, 80, 89, 95];
     let a = [3, 11, 21, 28, 36, 45, 50, 57, 81, 96];
@@ -77,32 +77,32 @@ const ResultsLearning = ({ answers }) => {
     if (h_v > highestCount) {
         highestType = 'Humanidades';
         highestCount = h_v;
-        let text = 'Area de Humanidades y Ciencias Sociales y Juridicas'
+        text = 'Area de Humanidades y Ciencias Sociales y Juridicas'
     }
     if (a_v > highestCount) {
         highestType = 'Artistica';
         highestCount = a_v;
-        let text = 'Area Artistica'
+        text = 'Area Artistica'
     }
     if (s_v > highestCount) {
         highestType = 'Salud';
         highestCount = s_v;
-        let text = 'Area de Ciencias de la Salud'
+        text = 'Area de Ciencias de la Salud'
     }
     if (d_v > highestCount) {
         highestType = 'Seguridad';
         highestCount = d_v;
-        let text = 'Area de Defensa y Seguridad'
+        text = 'Area de Defensa y Seguridad'
     }
     if (i_v > highestCount) {
         highestType = 'Enseñanzas';
         highestCount = i_v;
-        let text = 'Area de Enseñanzas Tecnicas'
+        text = 'Area de Enseñanzas Tecnicas'
     }
     if (e_v > highestCount) {
         highestType = 'Experimentales';
         highestCount = e_v;
-        let text = 'Area de Ciencias Experimentales'
+        text = 'Area de Ciencias Experimentales'
     }
 ///////////////////////////////////////////////////////////////////
     let highestType_A = 'Administrativa';
@@ -139,49 +139,49 @@ const ResultsLearning = ({ answers }) => {
             skills: ['Organización', 'Supervisión', 'Orden', 'Análisis y síntesis', 'Colaboración', 'Cálculo'],
             jobs: ['Gerente de oficina', 'Asistente administrativo', 'Gerente de operaciones'],
             education: 'Licenciatura en Administración de Empresas, Gestión o campos relacionados.',
-            averageSalary: '$50,000 - $80,000 anuales',
+            averageSalary: '$850,000 - $1,360,000 anuales',
         },
         Humanidades: {
             description: 'Las carreras en humanidades se enfocan en el estudio de la cultura humana, la sociedad y la historia. Involucran el análisis de textos, la investigación histórica y la comprensión de las dinámicas sociales.',
             skills: ['Precisión Verbal', 'Organización', 'Relación de hechos', 'Lingüística', 'Orden', 'Justicia'],
             jobs: ['Historiador', 'Filólogo', 'Antropólogo'],
             education: 'Licenciatura en Historia, Letras, Antropología o campos relacionados.',
-            averageSalary: '$40,000 - $70,000 anuales',
+            averageSalary: '$680,000 - $799,000 anuales',
         },
         Artistica: {
             description: 'Las carreras artísticas se centran en la creación y apreciación del arte. Incluyen disciplinas como la pintura, la escultura, la música, el teatro y el diseño gráfico.',
             skills: ['Estético', 'Armónico', 'Manual', 'Visual', 'Auditivo'],
             jobs: ['Artista plástico', 'Diseñador gráfico', 'Músico'],
             education: 'Licenciatura en Bellas Artes, Diseño Gráfico, Música o campos relacionados.',
-            averageSalary: '$30,000 - $60,000 anuales',
+            averageSalary: '$510,000 - $1,020,000 anuales',
         },
         Salud: {
             description: 'Las carreras en salud se enfocan en el cuidado y la mejora de la salud humana. Incluyen la medicina, la enfermería, la terapia física y otras disciplinas relacionadas con el bienestar.',
             skills: ['Asistir', 'Investigar', 'Precisión', 'Percepción', 'Análisis', 'Ayudar'],
-            jobs: ['Médico', 'Enfermero', 'Terapeuta físico'],
-            education: 'Licenciatura en Medicina, Enfermería, Terapia Física o campos relacionados.',
-            averageSalary: '$60,000 - $120,000 anuales',
+            jobs: ['Médico', 'Enfermero', 'Terapeuta físico','Elaborar productos farmaceuticos'],
+            education: 'Licenciatura en Medicina, Enfermería, Terapia Física, Químico Farmaceutico Biólogo o campos relacionados.',
+            averageSalary: '$1,020,000 - $2,040,000 anuales',
         },
         Seguridad: {
             description: 'Las carreras en seguridad se centran en la protección de las personas, propiedades y datos. Incluyen roles en la policía, seguridad privada y ciberseguridad.',
             skills: ['Justicia', 'Equidad', 'Colaboración', 'Espíritu de equipo', 'Liderazgo'],
             jobs: ['Oficial de policía', 'Guardia de seguridad', 'Analista de seguridad cibernética'],
             education: 'Formación policial, Certificaciones en seguridad, Licenciatura en Seguridad Informática o campos relacionados.',
-            averageSalary: '$40,000 - $90,000 anuales',
+            averageSalary: '$680,000 - $1,530,000 anuales',
         },
         Enseñanzas: {
             description: 'Las carreras en enseñanza se dedican a la educación y formación de individuos en diversas áreas de conocimiento. Incluyen roles en la enseñanza primaria, secundaria y universitaria.',
             skills: ['Cálculo', 'Científico', 'Manual', 'Exactitud', 'Planificar'],
             jobs: ['Profesor de primaria', 'Profesor de secundaria', 'Profesor universitario'],
             education: 'Licenciatura en Educación, Pedagogía o especialidades relacionadas.',
-            averageSalary: '$35,000 - $70,000 anuales',
+            averageSalary: '$595,000 - $1,190,000 anuales',
         },
         Experimentales: {
             description: 'Las carreras experimentales se centran en la investigación y el descubrimiento científico. Incluyen roles en laboratorios, investigaciones de campo y desarrollo tecnológico.',
             skills: ['Investigación', 'Orden', 'Organización', 'Análisis y Síntesis', 'Cálculo numérico', 'Clasificar'],
             jobs: ['Científico de laboratorio', 'Investigador', 'Desarrollador de tecnología'],
             education: 'Licenciatura en Ciencias, Ingeniería o campos relacionados.',
-            averageSalary: '$50,000 - $100,000 anuales',
+            averageSalary: '$850,000 - $1,700,000 anuales',
         },
     };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -217,21 +217,38 @@ const ResultsLearning = ({ answers }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Resultados del Cuestionario</Text>
+           
             <View style={styles.resultContainer}>
-                <Text style={styles.resultText}>Tipo de aprendizaje predominante: {highestType}</Text>
+                
+                <Text style={styles.resultText}>Area recomendada: {text}</Text>
                 <Text style={styles.resultDescription}>{highestTypeInfo.description}</Text>
-                <Text style={styles.resultSubtitle}>Características:</Text>
+                
+                <Text style={styles.resultSubtitle}>Intereses de esta area:</Text>
                 <View style={styles.resultList}>
-                    {highestTypeInfo.characteristics.map((characteristic, index) => (
-                        <Text key={index} style={styles.resultListItem}>- {characteristic}</Text>
+                    {highestTypeInfo.skills.map((skills, index) => (
+                        <Text key={index} style={styles.resultListItem}>- {skills}</Text>
                     ))}
                 </View>
-                <Text style={styles.resultSubtitle}>Actividades recomendadas:</Text>
+                
+                <Text style={styles.resultSubtitle}>Aptitudes destacadas:</Text>
                 <View style={styles.resultList}>
-                    {highestTypeInfo.activities.map((activity, index) => (
-                        <Text key={index} style={styles.resultListItem}>- {activity}</Text>
+                    {highestTypeInfo_apt.skills.map((skills, index) => (
+                        <Text key={index} style={styles.resultListItem}>- {skills}</Text>
                     ))}
                 </View>
+                
+                <Text style={styles.resultText}>Educación</Text>
+                <Text style={styles.resultDescription}>{highestTypeInfo.education}</Text>
+
+                <Text style={styles.resultSubtitle}>Empleos mas populares del area:</Text>
+                <View style={styles.resultList}>
+                    {highestTypeInfo.jobs.map((jobs, index) => (
+                        <Text key={index} style={styles.resultListItem}>- {jobs}</Text>
+                    ))}
+                </View>
+
+                <Text style={styles.resultText}>Mejor salario estimado</Text>
+                <Text style={styles.resultDescription}>{highestTypeInfo.averageSalary}</Text>
             </View>
         </View>
     );
@@ -278,4 +295,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ResultsLearning;
+export default ResultsVocational;
