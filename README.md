@@ -38,9 +38,9 @@ o tambien puede ser
 ```
 ifconfig
 ```
-Una vez que sepas tu IP en el proyecto busca en la raiz un archivo llamado *Ip.js*, veras que es solo una constante, entre las comillas debes de pegar tu IP y con eso, en todo lado que se hagan operaciones a la API se haran sin problema.
+Una vez que sepas tu IP, en el proyecto busca en la raiz un archivo llamado *Ip.js*, veras que es solo una constante, entre las comillas debes de pegar tu IP y con eso, en todo lado que se hagan operaciones a la API se haran sin problema.
 ```js
-//ip.js
+//Ip.js
 export default ip = 'x.x.x.x'; //Pega tu IP entre las comillas
 ```
 
@@ -56,6 +56,6 @@ npm start
 ```
 
 ## Instalación del backend
-Para instalar el proyecto del backend que es la API que realiza las llamadas a la base de datos, se debe visitar dando click a este link:
+Para instalar el proyecto del backend que es la API que realiza las llamadas a la base de datos, se debe visitar el link de su repositorio:
 
 <https://github.com/FidelNR/FutureForgeback.git>
