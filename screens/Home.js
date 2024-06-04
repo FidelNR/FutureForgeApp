@@ -148,13 +148,14 @@ import vocacional from '../image/vocacional.jpg';
 import aprendizaje from '../image/aprendizaje.jpg';
 import Footer from '../components/footer';
 import { useNavigation } from '@react-navigation/native';
+import ip from '../Ip'
 
 const Home = () => {
   const navigation = useNavigation();
   const [usuarios, setUsuarios] = useState([]);
 
   useEffect(() => {
-    fetch('http://192.168.100.16:4000/api/users') // Reemplaza con la IP de tu máquina
+    fetch(`http://${ip}:4000/api/recuworker`) // Reemplaza con la IP de tu máquina
       .then(response => response.json())
       .then(data => {
         setUsuarios(data);

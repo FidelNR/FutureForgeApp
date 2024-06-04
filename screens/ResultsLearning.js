@@ -64,7 +64,8 @@ const styles = StyleSheet.create({
 export default ResultsLearning;*/
 
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet,Dimensions } from 'react-native';
+import { BarChart } from 'react-native-chart-kit';
 
 const ResultsLearning = ({ answers }) => {
     let activo = [3,5,7,9,13,20,26,27,35,37,41,43,46,48,51,61,67,74,75,77];
@@ -142,34 +143,38 @@ const ResultsLearning = ({ answers }) => {
         ]
       };
 
+      const screenWidth = Dimensions.get('window').width;
     return (
         <>
         <View style={styles.container}>
             <Text style={styles.title}>Resultados del Cuestionario</Text>
-            {/* <BarChart
-                style={styles.bar}
-                data={data}
-                width={Dimensions.get('window').width - 32} // Ajusta el ancho de la gráfica
-                height={220}
-                yAxisLabel=""
-                chartConfig={{
-                    backgroundColor: '#e26a00',
-                    backgroundGradientFrom: '#fb8c00',
-                    backgroundGradientTo: '#ffa726',
-                    decimalPlaces: 0,
-                    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                    labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                    style: {
-                        borderRadius: 16
-                    },
-                    propsForDots: {
-                        r: "6",
-                        strokeWidth: "2",
-                        stroke: "#ffa726"
-                    }
-                }}
-                verticalLabelRotation={30}
-            /> */}
+        <View style={styles.grafica}>
+      <BarChart
+        style={styles.bar}
+        data={data}
+        width={screenWidth - 40}
+        height={220}
+        yAxisLabel=""
+        chartConfig={{
+            backgroundColor: '#FFFFFF',
+            backgroundGradientFrom: '#E6F5E6',
+            backgroundGradientTo: '#FFFFFF',
+            decimalPlaces: 0,
+            color: (opacity = 1) => `rgba(0, 100, 0, ${opacity})`,
+            labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+            style: {
+                borderRadius: 16
+            },
+            propsForDots: {
+                r: "6",
+                strokeWidth: "2",
+                stroke: "#ffa726"
+            }
+        }}
+        verticalLabelRotation={0}
+      />
+</View>
+            
             <View style={styles.resultContainer}>
                 <Text style={styles.resultText}>Tipo de aprendizaje predominante: {highestType}</Text>
                 <Text style={styles.resultDescription}>{highestTypeInfo.description}</Text>
@@ -233,6 +238,11 @@ const ResultsLearning = ({ answers }) => {
         bar: {
             marginVertical: 16,
             borderRadius: 16,
+        },
+        grafica: {
+          display:'flex',
+          justifyContent:'center',
+          alignItems:'center'
         },
     });
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Text, TextInput, View, StyleSheet, Button, ScrollView, SafeAreaView, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Footer from '../components/footer';
+import ip from '../Ip'
 
 const Signup = () => {
   const navigation = useNavigation();
@@ -19,7 +20,7 @@ const Signup = () => {
           contrasena,
         };
 
-        fetch('http://192.168.100.16:4000/api/worker', {
+        fetch(`http://${ip}:4000/api/recuworker`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

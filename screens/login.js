@@ -3,6 +3,7 @@ import { Text, TextInput, View, StyleSheet, Button, TouchableOpacity, ScrollView
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import Footer from '../components/footer';
+import ip from '../Ip'
 
 const Login = () => {
     const navigation = useNavigation();
@@ -15,7 +16,7 @@ const Login = () => {
 
     const handleHome = () => {
         if (usuario !== "" && contrasena !== "") {
-            fetch('http://192.168.100.16:4000/api/recuworker', {
+            fetch(`http://${ip}:4000/api/recuworker`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
