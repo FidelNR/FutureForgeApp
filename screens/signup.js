@@ -20,7 +20,7 @@ const Signup = () => {
           contrasena,
         };
 
-        fetch(`http://${ip}:4000/api/recuworker`, {
+        fetch(`http://${ip}:4000/api/worker`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

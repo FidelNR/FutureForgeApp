@@ -155,7 +155,7 @@ const Home = () => {
   const [usuarios, setUsuarios] = useState([]);
 
   useEffect(() => {
-    fetch(`http://${ip}:4000/api/recuworker`) // Reemplaza con la IP de tu máquina
+    fetch(`http://${ip}:4000/api/users`) // Reemplaza con la IP de tu máquina
       .then(response => response.json())
       .then(data => {
         setUsuarios(data);
