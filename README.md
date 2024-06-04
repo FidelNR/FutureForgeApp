@@ -39,10 +39,14 @@ o tambien puede ser
 ifconfig
 ```
 Una vez que sepas tu IP en el proyecto busca en la raiz un archivo llamado *Ip.js*, veras que es solo una constante, entre las comillas debes de pegar tu IP y con eso, en todo lado que se hagan operaciones a la API se haran sin problema.
+```js
+//ip.js
+export default ip = 'x.x.x.x'; //Pega tu IP entre las comillas
+```
 
 ***Nota**
 
-Se debe cuidar que la IP dentro de las comillas no tenga ningun espacio en blanco, ya que no funcionara y marcara error de conexión.
+Se debe cuidar que la IP dentro de las comillas no tenga ningun espacio en blanco al inicio o al final , ya que no funcionara la conexión y marcara error.
 ## Ejecución
 
 Por ultimo, para ejecutar el proyecto y ver su contenido y funcionamiento se utiliza el comando:
